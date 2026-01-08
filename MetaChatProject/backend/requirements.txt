@@ -1,5 +1,0 @@
-gunicorn
-fastapi
-uvicorn
-python-multipart
-# requests # If needed for real LLM API
