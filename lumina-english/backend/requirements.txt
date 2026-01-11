@@ -1,0 +1,13 @@
+fastapi
+uvicorn[standard]
+sqlmodel
+alembic
+pydantic-settings
+python-jose[cryptography]
+passlib[bcrypt]
+python-multipart
+httpx
+weasyprint
+openai
+google-generativeai
+pytest
