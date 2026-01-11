@@ -30,8 +30,8 @@ class LuminaApp:
             label="Email", 
             border_radius=15, 
             width=350,
-            prefix_icon=ft.icons.EMAIL,
-            focused_border_color=ft.colors.CYAN_400
+            prefix_icon="email",
+            focused_border_color="cyan400"
         )
         password_field = ft.TextField(
             label="Password", 
@@ -39,11 +39,11 @@ class LuminaApp:
             can_reveal_password=True, 
             border_radius=15, 
             width=350,
-            prefix_icon=ft.icons.LOCK,
-            focused_border_color=ft.colors.CYAN_400
+            prefix_icon="lock",
+            focused_border_color="cyan400"
         )
         
-        error_text = ft.Text(color=ft.colors.RED_400, visible=False)
+        error_text = ft.Text(color="red400", visible=False)
 
         def login_click(e):
             try:
@@ -74,8 +74,8 @@ class LuminaApp:
 
         login_card = ft.Container(
             content=ft.Column([
-                ft.Text("Lumina English", size=45, weight="bold", color=ft.colors.CYAN_ACCENT),
-                ft.Text("Your AI-Powered Path to English Mastery", size=16, color=ft.colors.GREY_400),
+                ft.Text("Lumina English", size=45, weight="bold", color="cyanaccent"),
+                ft.Text("Your AI-Powered Path to English Mastery", size=16, color="grey400"),
                 ft.Divider(height=20, color="transparent"),
                 email_field,
                 password_field,
@@ -88,8 +88,8 @@ class LuminaApp:
                     height=50,
                     style=ft.ButtonStyle(
                         shape=ft.RoundedRectangleBorder(radius=15),
-                        bgcolor=ft.colors.CYAN_700,
-                        color=ft.colors.WHITE
+                        bgcolor="cyan700",
+                        color="white"
                     )
                 ),
                 ft.TextButton("Don't have an account? Create one", on_click=lambda _: None)
@@ -106,18 +106,18 @@ class LuminaApp:
                 # Background decoration
                 ft.Container(
                     expand=True,
-                    bgcolor=ft.colors.BLACK87,
+                    bgcolor="black87",
                 ),
                 ft.Container(
                     width=400, height=400,
-                    bgcolor=ft.colors.with_opacity(0.1, ft.colors.CYAN),
+                    bgcolor=ft.colors.with_opacity(0.1, "white"),
                     border_radius=200,
                     left=-100, top=-100,
                     blur=ft.Blur(100, 100)
                 ),
                 ft.Container(
                     width=400, height=400,
-                    bgcolor=ft.colors.with_opacity(0.1, ft.colors.PURPLE),
+                    bgcolor=ft.colors.with_opacity(0.1, "purple"),
                     border_radius=200,
                     right=-100, bottom=-100,
                     blur=ft.Blur(100, 100)
@@ -147,17 +147,17 @@ class LuminaApp:
             label_type=ft.NavigationRailLabelType.ALL,
             min_width=100,
             min_extended_width=200,
-            bgcolor=ft.colors.with_opacity(0.05, ft.colors.WHITE),
+            bgcolor=ft.colors.with_opacity(0.05, "white"),
             group_alignment=-0.9,
             destinations=[
-                ft.NavigationRailDestination(icon=ft.icons.DASHBOARD, label="Home"),
-                ft.NavigationRailDestination(icon=ft.icons.MENU_BOOK, label="Lessons"),
-                ft.NavigationRailDestination(icon=ft.icons.SMART_TOY, label="Assistant"),
-                ft.NavigationRailDestination(icon=ft.icons.GAMES, label="Games"),
-                ft.NavigationRailDestination(icon=ft.icons.STARS, label="Rewards"),
+                ft.NavigationRailDestination(icon="dashboard", label="Home"),
+                ft.NavigationRailDestination(icon="menu_book", label="Lessons"),
+                ft.NavigationRailDestination(icon="smart_toy", label="Assistant"),
+                ft.NavigationRailDestination(icon="games", label="Games"),
+                ft.NavigationRailDestination(icon="stars", label="Rewards"),
             ],
             on_change=self.handle_nav_change,
-            trailing=ft.IconButton(ft.icons.LOGOUT, on_click=lambda _: self.show_login(), tooltip="Sign Out")
+            trailing=ft.IconButton("logout", on_click=lambda _: self.show_login(), tooltip="Sign Out")
         )
 
         self.content_area = ft.Container(expand=True, padding=30)
@@ -190,9 +190,9 @@ class LuminaApp:
             game_cards.controls.append(
                 ft.Container(
                     content=ft.Column([
-                        ft.Icon(ft.icons.VIDEOGAME_ASSET, size=40, color=ft.colors.CYAN_400),
+                        ft.Icon("videogame_asset", size=40, color="cyan400"),
                         ft.Text(g['name'], size=20, weight="bold"),
-                        ft.Text(g['type'].replace('_', ' ').title(), color=ft.colors.GREY_400),
+                        ft.Text(g['type'].replace('_', ' ').title(), color="grey400"),
                         ft.Divider(height=10, color="transparent"),
                         ft.ElevatedButton("Play Now", on_click=lambda _: None, 
                                          style=ft.ButtonStyle(shape=ft.RoundedRectangleBorder(radius=10)))
@@ -222,7 +222,7 @@ class LuminaApp:
                 ft.Container(
                     content=ft.Column([
                         ft.Text(r['name'], size=18, weight="bold"),
-                        ft.Text(r['description'], color=ft.colors.GREY_400, size=12),
+                        ft.Text(r['description'], color="grey400", size=12),
                         ft.Divider(height=10, color="transparent"),
                         ft.Row([
                             ft.Text(f"💰 {r['cost_coins']}"),
@@ -240,7 +240,7 @@ class LuminaApp:
 
         self.content_area.content = ft.Column([
             ft.Text("Rewards & Shop", size=32, weight="bold"),
-            ft.Text("Spend your coins on skins and badges", color=ft.colors.GREY_400),
+            ft.Text("Spend your coins on skins and badges", color="grey400"),
             ft.Divider(height=20, color="transparent"),
             reward_cards
         ], scroll=ft.ScrollMode.AUTO)
@@ -261,7 +261,7 @@ class LuminaApp:
                         ]),
                         padding=10,
                         border_radius=10,
-                        bgcolor=ft.colors.with_opacity(0.05, ft.colors.WHITE)
+                        bgcolor=ft.colors.with_opacity(0.05, "white")
                     )
                 )
 
@@ -269,7 +269,7 @@ class LuminaApp:
             ft.Row([
                 ft.Column([
                     ft.Text(f"Welcome back, {user['email'].split('@')[0]}!", size=32, weight="bold"),
-                    ft.Text("Here's your progress for today", color=ft.colors.GREY_400),
+                    ft.Text("Here's your progress for today", color="grey400"),
                 ]),
                 ft.Container(expand=True),
                 ft.Row([
@@ -283,7 +283,7 @@ class LuminaApp:
                 ft.Container(
                     content=ft.Column([
                         ft.Text("Daily Quests", size=24, weight="bold"),
-                        ft.Text("Boost your English skills with these tasks", color=ft.colors.GREY_400),
+                        ft.Text("Boost your English skills with these tasks", color="grey400"),
                         ft.Divider(height=10, color="transparent"),
                         task_list,
                     ]),
@@ -297,12 +297,12 @@ class LuminaApp:
                         ft.Text("Companion", size=24, weight="bold"),
                         ft.Divider(height=10, color="transparent"),
                         ft.Image(src="https://img.icons8.com/color/512/anime-girl.png", width=200),
-                        ft.Text(profile['character'], size=20, weight="bold", color=ft.colors.CYAN_Accent),
-                        ft.Text("Level 5 Buddy", color=ft.colors.GREY_400),
+                        ft.Text(profile['character'], size=20, weight="bold", color="cyanaccent"),
+                        ft.Text("Level 5 Buddy", color="grey400"),
                     ], horizontal_alignment="center"),
                     padding=30,
                     border_radius=20,
-                    bgcolor=ft.colors.with_opacity(0.05, ft.colors.CYAN_900),
+                    bgcolor=ft.colors.with_opacity(0.05, "cyan900"),
                     expand=1
                 )
             ], vertical_alignment="start", spacing=30)
@@ -312,7 +312,7 @@ class LuminaApp:
         return ft.Container(
             content=ft.Column([
                 ft.Text(f"{emoji} {value}", size=20, weight="bold"),
-                ft.Text(label, size=12, color=ft.colors.GREY_400),
+                ft.Text(label, size=12, color="grey400"),
             ], horizontal_alignment="center"),
             padding=15,
             border_radius=15,
@@ -334,7 +334,7 @@ class LuminaApp:
                 ft.Container(
                     content=ft.Column([
                         ft.Text(l['title'], size=18, weight="bold"),
-                        ft.Text(f"Level {l['level']}", color=ft.colors.CYAN_400),
+                        ft.Text(f"Level {l['level']}", color="cyan400"),
                         ft.Divider(height=10, color="transparent"),
                         ft.ElevatedButton("Start Lesson", on_click=create_click_handler(), 
                                          style=ft.ButtonStyle(shape=ft.RoundedRectangleBorder(radius=10)))
@@ -348,7 +348,7 @@ class LuminaApp:
 
         self.content_area.content = ft.Column([
             ft.Text("English Lessons", size=32, weight="bold"),
-            ft.Text("Explore structured content from A1 to C1", color=ft.colors.GREY_400),
+            ft.Text("Explore structured content from A1 to C1", color="grey400"),
             ft.Divider(height=20, color="transparent"),
             lesson_cards
         ], scroll=ft.ScrollMode.AUTO)
@@ -356,7 +356,7 @@ class LuminaApp:
     def open_lesson(self, lesson):
         self.content_area.content = ft.Column([
             ft.Row([
-                ft.IconButton(ft.icons.ARROW_BACK, on_click=lambda _: self.render_lessons()),
+                ft.IconButton("arrow_back", on_click=lambda _: self.render_lessons()),
                 ft.Text(lesson['title'], size=32, weight="bold"),
             ]),
             ft.Markdown(
@@ -371,11 +371,11 @@ class LuminaApp:
                 content=ft.Column([
                     ft.Text(list(lesson['quiz_json'].values())[0] if lesson['quiz_json'] else "No quiz for this lesson."),
                     ft.TextField(label="Your Answer", border_radius=10),
-                    ft.ElevatedButton("Submit Answer", bgcolor=ft.colors.CYAN_700, color=ft.colors.WHITE)
+                    ft.ElevatedButton("Submit Answer", bgcolor="cyan700", color="white")
                 ], spacing=20),
                 padding=30,
                 border_radius=20,
-                bgcolor=ft.colors.with_opacity(0.05, ft.colors.WHITE)
+                bgcolor=ft.colors.with_opacity(0.05, "white")
             )
         ], scroll=ft.ScrollMode.AUTO)
 
@@ -421,7 +421,7 @@ class LuminaApp:
             ),
             ft.Row([
                 self.chat_input,
-                ft.IconButton(ft.icons.SEND, on_click=lambda _: self.send_assistant_message(), icon_color=ft.colors.CYAN_ACCENT)
+                ft.IconButton("send", on_click=lambda _: self.send_assistant_message(), icon_color="cyanaccent")
             ])
         ])
         
@@ -467,10 +467,10 @@ class LuminaApp:
     def chat_bubble(self, text, is_user):
         return ft.Row([
             ft.Container(
-                content=ft.Text(text, color=ft.colors.WHITE),
+                content=ft.Text(text, color="white"),
                 padding=15,
                 border_radius=15,
-                bgcolor=ft.colors.CYAN_900 if is_user else ft.colors.GREY_800,
+                bgcolor="cyan900" if is_user else "grey800",
                 max_width=600,
             )
         ], alignment=ft.MainAxisAlignment.END if is_user else ft.MainAxisAlignment.START)
